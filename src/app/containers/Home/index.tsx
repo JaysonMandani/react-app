@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getRobots } from 'modules/robots';
+import { recycleRobots } from 'modules/robots';
 import { IRobots, IRobotsAction } from 'models/robots';
 const { connect } = require('react-redux');
 const { asyncConnect } = require('redux-connect');
@@ -12,7 +12,7 @@ interface IProps {
 
 @asyncConnect([{
   promise: ({ store: { dispatch }}) => {
-    return dispatch(getRobots());
+    return dispatch(recycleRobots());
   },
 }])
 

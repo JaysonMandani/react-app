@@ -15,7 +15,7 @@ export function robotsReducer(state = initialState, action: IRobotsAction) {
   switch (action.type) {
     case GET_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true,
+        isFetching: false,
       });
 
     case GET_SUCCESS:
@@ -42,7 +42,24 @@ export function getRobots() {
 
     return fetch('http://localhost:3000/robots')
       .then((res) => {
-        console.log('lalala', res);
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(robotsSuccess(res)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(robotsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(robotsFailure(err)));
+  };
+}
+
+export function recycleRobots() {
+  return(dispatch) => {
+    dispatch(robotsRequest());
+
+    return fetch('http://localhost:3000/robots/recycle', {method: 'post'})
+      .then((res) => {
         if (res.ok) {
           return res.json()
             .then((res) => dispatch(robotsSuccess(res)));
