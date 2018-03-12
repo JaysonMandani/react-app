@@ -1,14 +1,14 @@
-export interface IStars {
+export interface IRobots {
   isFetching?: boolean;
   count?: number;
   error?: boolean;
   message?: any;
 }
 
-export interface IStarsAction {
+export interface IRobotsAction {
   type: string;
   payload?: {
-    count?: number;
+    robots?: any;
     message?: any;
   };
 }
