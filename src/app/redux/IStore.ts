@@ -1,7 +1,7 @@
-import { ICounter } from 'models/counter';
 import { IRobots } from 'models/robots';
+import { IRecycleRobots } from 'models/recycleRobots';
 
 export interface IStore {
-  counter: ICounter;
+  recycleRobots: IRecycleRobotsa;
   robots: IRobots;
 };

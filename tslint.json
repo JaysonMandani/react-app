@@ -1,8 +1,4 @@
 {
-  "extends": [
-    "tslint:latest",
-    "tslint-react"
-  ],
   "rules": {
     "indent": [
       true,

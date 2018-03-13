@@ -1,15 +1,13 @@
-export interface IRobots {
+export interface IRecycleRobots {
   isFetching?: boolean;
-  robots?: any;
   recycleRobots?: any;
   error?: boolean;
   message?: any;
 }
 
-export interface IRobotsAction {
+export interface IRecycleRobotsAction {
   type: string;
   payload?: {
-    robots?: any;
     recycleRobots?: any;
     message?: any;
   };
