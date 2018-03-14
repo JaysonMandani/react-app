@@ -26,25 +26,74 @@ class RecycleProcess extends React.Component<IProps, {}> {
     const passedRobots  = recycleRobots.passed;
     const notPassedRobots = recycleRobots.not_passed;
     const passedList = passedRobots.map((robot) =>
-      <li key={robot.id}>{robot.name}</li>
+      <tr key={robot.id}>
+        <td>{robot.id}</td>
+        <td>{robot.name}</td>
+        <td>{robot.number_of_rotors}</td>
+        <td>{robot.colour}</td>
+      </tr>,
     );
     const notPassedList = notPassedRobots.map((robot) =>
-      <li key={robot.id}>{robot.name}</li>
+      <tr key={robot.id}>
+        <td>{robot.id}</td>
+        <td>{robot.name}</td>
+        <td>{robot.number_of_rotors}</td>
+        <td>{robot.colour}</td>
+        <td>{robot.status}</td>
+      </tr>,
     );
 
     return (
       <div className={style.RecycleProcess}>
         <section id="passed">
-          <h4>Passed QA</h4>
-          <ul>
-            {passedList}
-          </ul>
+          <h2>Passed QA</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Number Of Rotors</th>
+                <th>Colour</th>
+              </tr>
+            </thead>
+            <tbody>
+              {passedList}
+            </tbody>
+          </table>
+        </section>
+        <section id="passed">
+          <h2>Ready to Ship</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Number Of Rotors</th>
+                <th>Colour</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {passedList}
+            </tbody>
+          </table>
         </section>
         <section id="notPassed">
-          <h4>Factory seconds</h4>
-          <ul>
-            {notPassedList}
-          </ul>
+          <h2>Factory seconds</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Number Of Rotors</th>
+                <th>Colour</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {notPassedList}
+            </tbody>
+          </table>
         </section>
       </div>
     );
