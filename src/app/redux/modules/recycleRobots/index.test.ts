@@ -1,7 +1,3 @@
-const errResponse = {
-  message: 'ERROR :-O',
-};
-
 /** Robotgazers Module */
 describe('Robots Module', () => {
 

@@ -8,7 +8,6 @@ export const Header = () => (
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="recycleProcess">RecycleProcess</Link></li>
-      <li><Link to="counter">Counter</Link></li>
     </ul>
   </nav>
 );

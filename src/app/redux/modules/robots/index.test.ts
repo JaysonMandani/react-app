@@ -2,7 +2,6 @@ const errResponse = {
   message: 'ERROR :-O',
 };
 
-/** Robotgazers Module */
 describe('Robots Module', () => {
 
   /** Action Creators */

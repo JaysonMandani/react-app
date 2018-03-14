@@ -11,7 +11,7 @@ const initialState: IRecycleRobots = {
 };
 
 /** Reducer */
-export function robotsReducer(state = initialState, action: IRecycleRobotsAction) {
+export function recycleRobotsReducer(state = initialState, action: IRecycleRobotsAction) {
   switch (action.type) {
     case GET_REQUEST:
       return Object.assign({}, state, {
@@ -36,7 +36,7 @@ export function robotsReducer(state = initialState, action: IRecycleRobotsAction
   }
 }
 
-export function recycleRobots() {
+export function getRecycleRobots() {
   return(dispatch) => {
     dispatch(robotsRequest());
 
@@ -55,24 +55,14 @@ export function recycleRobots() {
 }
 
 /** Action Creator */
-export function robotsRequest(): IRobotsAction {
+export function robotsRequest(): IRecycleRobotsAction {
   return {
     type: GET_REQUEST,
   };
 }
 
 /** Action Creator */
-export function robotsSuccess(robots: any): IRobotsAction {
-  return {
-    type: GET_SUCCESS,
-    payload: {
-      robots,
-    },
-  };
-}
-
-/** Action Creator */
-export function recycleRobotsSuccess(recycleRobots: any): IRobotsAction {
+export function robotsSuccess(recycleRobots: any): IRecycleRobotsAction {
   return {
     type: GET_SUCCESS,
     payload: {
@@ -82,7 +72,17 @@ export function recycleRobotsSuccess(recycleRobots: any): IRobotsAction {
 }
 
 /** Action Creator */
-export function robotsFailure(message: any): IRobotsAction {
+export function recycleRobotsSuccess(recycleRobots: any): IRecycleRobotsAction {
+  return {
+    type: GET_SUCCESS,
+    payload: {
+      recycleRobots,
+    },
+  };
+}
+
+/** Action Creator */
+export function robotsFailure(message: any): IRecycleRobotsAction {
   return {
     type: GET_FAILURE,
     payload: {
