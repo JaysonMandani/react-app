@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { getRecycleRobots } from 'modules/recycleRobots';
 import { IRecycleRobots, IRecycleRobotsAction } from 'models/recycleRobots';
+const _ = require('lodash');
 const { connect } = require('react-redux');
 const { asyncConnect } = require('redux-connect');
 const style = require('./style.css');
@@ -22,6 +23,7 @@ interface IProps {
 
 class RecycleProcess extends React.Component<IProps, {}> {
   public render() {
+    console.log('lodash', _)
     const { recycleRobots } = this.props.recycleRobots;
     const passedRobots  = recycleRobots.passed;
     const notPassedRobots = recycleRobots.not_passed;
