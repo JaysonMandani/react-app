@@ -6,7 +6,7 @@ const style = require('./style.css');
 export const Header = () => (
   <nav className={style.Nav}>
     <ul>
-      <li><Link to="/">Home</Link></li>
+      <li><Link to="/">Robots</Link></li>
       <li><Link to="recycleProcess">RecycleProcess</Link></li>
     </ul>
   </nav>

@@ -26,7 +26,7 @@ export function recycleRobotsReducer(state = initialState, action: IRecycleRobot
 
     case GET_FAILURE:
       return Object.assign({}, state, {
-        isFetching: false,
+        isFetching: true,
         message: action.payload.message,
         error: true,
       });
@@ -41,6 +41,78 @@ export function getRecycleRobots() {
     dispatch(robotsRequest());
 
     return fetch('http://localhost:3000/robots/recycle', {method: 'post'})
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(recycleRobotsSuccess(res)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(robotsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(robotsFailure(err)));
+  };
+}
+
+export function moveRobotToShip(robot_id) {
+  return(dispatch) => {
+    dispatch(robotsRequest());
+
+  return fetch('http://localhost:3000/robots/' + robot_id + '/move_to_ship', {method: 'put'})
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(recycleRobotsSuccess(res)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(robotsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(robotsFailure(err)));
+  };
+}
+
+export function removeRobotToShip(robot_id) {
+  return(dispatch) => {
+    dispatch(robotsRequest());
+
+    return fetch('http://localhost:3000/robots/' + robot_id + '/remove_to_ship', {method: 'put'})
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(recycleRobotsSuccess(res)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(robotsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(robotsFailure(err)));
+  };
+}
+
+export function extinguishRobots(robot_id) {
+  return(dispatch) => {
+    dispatch(robotsRequest());
+
+    return fetch('http://localhost:3000/robots/' + robot_id + '/extinguish', {method: 'post'})
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(recycleRobotsSuccess(res)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(robotsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(robotsFailure(err)));
+  };
+}
+
+export function sendShipments() {
+  return(dispatch) => {
+    dispatch(robotsRequest());
+
+    return fetch('http://localhost:3000/shipments', {method: 'post'})
       .then((res) => {
         if (res.ok) {
           return res.json()
