@@ -2,6 +2,6 @@
 
 clone this repo then run:
 
-npm intall
+npm install
 
 npm start
