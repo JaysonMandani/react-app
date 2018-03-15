@@ -108,7 +108,7 @@ class RecycleProcess extends React.Component<IProps, {}> {
               {shipReadyList}
             </tbody>
           </table>
-          <button name="removeToShip" onClick={e => {e.preventDefault(); this.props.sendShipments()}}>Send shipment</button>
+          <button name="sendShipment" disabled={shipReadyRobots.length <= 0} onClick={e => {e.preventDefault(); this.props.sendShipments()}}>Send shipment</button>
         </section>
         <section id="notPassed">
           <h2>Factory seconds</h2>
