@@ -43,9 +43,9 @@ class RecycleProcess extends React.Component<IProps, {}> {
   }
   public render() {
     const { recycleRobots } = this.props.recycleRobots;
-    const passedRobots  = recycleRobots.passed;
+    const passedRobots  = _.sortBy(recycleRobots.passed, ['name']);
     const notPassedRobots = recycleRobots.not_passed;
-    const shipReadyRobots = recycleRobots.ship_ready;
+    const shipReadyRobots = _.sortBy(recycleRobots.ship_ready, ['name']);
     const passedList = passedRobots.map((robot) =>
       <tr key={robot.id}>
         <td>{robot.id}</td>
