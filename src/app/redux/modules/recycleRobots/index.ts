@@ -21,7 +21,7 @@ export function recycleRobotsReducer(state = initialState, action: IRecycleRobot
     case GET_SUCCESS:
       return Object.assign({}, state, {
         isFetching: true,
-        recycleRobots: action.payload.recycleRobots,
+        recycleRobots: action.payload.recycleRobots !== undefined ? action.payload.recycleRobots : []
       });
 
     case GET_FAILURE:

@@ -20,13 +20,14 @@ export function robotsReducer(state = initialState, action: IRobotsAction) {
 
     case GET_SUCCESS:
       return Object.assign({}, state, {
-        isFetching: true,
-        robots: action.payload.robots,
+        isFetching: false,
+        robots: action.payload.robots !== undefined ? action.payload.robots : []
       });
 
     case GET_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
+        robots: [],
         message: action.payload.message,
         error: true,
       });
